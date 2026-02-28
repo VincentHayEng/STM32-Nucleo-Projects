@@ -50,7 +50,10 @@ UART_HandleTypeDef huart2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
+
 /* USER CODE BEGIN PFP */
+
+static void init_gpio_struct(GPIO_TypeDef * port, uint32_t pin, uint32_t mode, uint32_t pull, uint32_t speed);
 
 /* USER CODE END PFP */
 
@@ -193,7 +196,6 @@ static void MX_USART2_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
 
   /* USER CODE END MX_GPIO_Init_1 */
@@ -210,7 +212,7 @@ static void MX_GPIO_Init(void)
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   /*Configure GPIO pin : B1_Pin */
-  init_gpio_struct(&GPIO_InitStruct, B1_GPIO_Port, LDB1_Pin2_Pin, GPIO_MODE_IT_FALLING, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW);
+  init_gpio_struct(B1_GPIO_Port, B1_Pin, GPIO_MODE_IT_FALLING, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW);
 
   /*Configure GPIO pin : LD2_Pin */
   init_gpio_struct(LD2_GPIO_Port, LD2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW);
