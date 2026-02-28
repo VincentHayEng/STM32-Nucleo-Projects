@@ -1,0 +1,15 @@
+#include "common_functions.h"
+#include "digital_ir_sensor.h"
+
+static digital_ir_sensor_t * p_digital_ir_sensor;
+
+void digital_ir_sensor__init(void)
+{
+	p_digital_ir_sensor = allocate_memory(sizeof(digital_ir_sensor_t));
+}
+
+void digital_ir_sensor__enable(void)
+{
+	p_digital_ir_sensor->enabled = 1;
+	p_digital_ir_sensor->state = digital_ir_sensor_state__normal;
+}
